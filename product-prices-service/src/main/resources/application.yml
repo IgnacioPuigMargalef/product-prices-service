@@ -1,0 +1,25 @@
+spring:
+  # Application name
+  application:
+    name: product-prices-service
+  # Enable console for execute querys
+  h2:
+    console:
+      enabled: true
+  # H2 datasource config
+  datasource:
+    url: jdbc:h2:mem:pricesdb
+    driver-class-name: org.h2.Driver
+    username: prices-user
+    password: prices-password
+  # For creating and inserting data when bootstrap the app
+  sql:
+    init:
+      mode: always
+
+# Port and context path
+server:
+  port: 8080
+  servlet:
+    context-path: product-price-service
+
