@@ -4,9 +4,7 @@ import com.nacho.productpricesservice.application.port.input.PricesInPort;
 import com.nacho.productpricesservice.application.port.output.PricesOutPort;
 import com.nacho.productpricesservice.domain.model.Prices;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
-@Service
 @AllArgsConstructor
 public class PricesService implements PricesInPort {
 
