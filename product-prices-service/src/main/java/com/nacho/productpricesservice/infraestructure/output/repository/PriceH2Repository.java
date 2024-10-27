@@ -21,6 +21,7 @@ public class PriceH2Repository {
 
     public Prices getPrice(String date, Integer productId, Integer brandId) {
         final PriceEntity priceEntity;
+        final Prices prices;
         final MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("date", date);
         params.addValue("productId", productId);
@@ -32,11 +33,12 @@ public class PriceH2Repository {
                     params,
                     priceRowMapper
             );
+            log.info("Got the entity price from database {} ", priceEntity);
         } catch (DataAccessException e) {
             throw new ProductPriceNotFoundException();
         }
 
-        return new Prices(
+        prices = new Prices(
                 priceEntity.getBrandId(),
                 priceEntity.getStartDate(),
                 priceEntity.getEndDate(),
@@ -46,5 +48,8 @@ public class PriceH2Repository {
                 priceEntity.getPriority(),
                 priceEntity.getPriceList()
         );
+
+        log.info("Got the price domain object {}, and returning ", prices);
+        return prices;
     }
 }
