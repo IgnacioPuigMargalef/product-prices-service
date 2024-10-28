@@ -1,6 +1,6 @@
 # Product Prices Service
 
-**Product Prices Service** es una aplicación de microservicio desarrollada en Java que permite obtener el precio de productos en tiempo real basándose en criterios como el `productId`, `brandId` y `dateRequest`.
+**Product Prices Service** es una aplicación desarrollada en Java que permite obtener el precio de productos en tiempo real basándose en criterios como el `productId`, `brandId` y `dateRequest`.
 
 ### Tabla de Contenidos
 
