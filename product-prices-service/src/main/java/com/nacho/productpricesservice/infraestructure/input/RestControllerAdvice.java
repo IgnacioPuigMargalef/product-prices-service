@@ -18,14 +18,14 @@ public class RestControllerAdvice {
     @ExceptionHandler(CurrencyTypeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public CustomErrorResponse handleCurrencyTypeException(CurrencyTypeException e) {
-        log.error("Error handling the currency type", e);
+        log.error("Error handling the currency type, returning {}", ERROR_CURRENCY_TYPE);
         return new CustomErrorResponse(ERROR_CURRENCY_TYPE);
     }
 
     @ExceptionHandler(ProductPriceNotFoundException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public CustomErrorResponse handleProductPriceNotFoundException(ProductPriceNotFoundException e) {
-        log.error("Error founding product price", e);
+        log.error("Error founding product price, returning {}", ERROR_GETTING_PRICE);
         return new CustomErrorResponse(ERROR_GETTING_PRICE);
     }
 

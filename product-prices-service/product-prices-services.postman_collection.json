@@ -1,0 +1,34 @@
+{
+    "info": {
+        "_postman_id": "12345678-1234-1234-1234-123456789012",
+        "name": "product-prices-services",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Obtener precio de producto",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"productId\":35455,\"brandId\":1,\"dateRequest\":\"14/06/2020-10:00:00\"}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/product-price-service/api/v1/price/get",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8080",
+                    "path": ["api", "v1", "price", "get"]
+                }
+            },
+            "response": []
+        }
+    ]
+}

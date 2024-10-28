@@ -1,0 +1,26 @@
+
+FROM openjdk:21-jdk
+
+WORKDIR /app
+
+# Copiamos el pom.xml del proyecto al workdir para proceder a descargar las dependencias
+COPY pom.xml .
+COPY .mvn .mvn
+COPY mvnw .
+RUN chmod +x mvnw
+RUN ./mvnw dependency:go-offline -B
+
+# Copiamos el proyecto al workdir tambien
+COPY src ./src
+
+# Compilamos el proyecto y empaquetarmos en un archivo JAR, saltandome los tests (ejecutados al arrancar)
+RUN ./mvnw clean package -DskipTests
+
+EXPOSE 8080
+
+# Compilar el proyecto y empaquetarlo en un archivo JAR
+RUN ./mvnw clean package -DskipTests
+
+# Pasamos test y arrancamos aplicacion
+ENTRYPOINT ["sh", "-c", "./mvnw test && java -jar target/product-prices-service-0.0.1-SNAPSHOT.jar"]
+
